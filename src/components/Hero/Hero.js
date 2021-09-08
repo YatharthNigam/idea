@@ -12,11 +12,11 @@ const Hero = (props) => (
   <Section row nopadding>
     <LeftSection>
       <SectionTitle main center>
-        Hello There! <br />
-        I'm Yatharth Nigam
+        Welcome To <br />
+        My Personal Portfolio
       </SectionTitle>
       <SectionText>
-        I am a NIE Mysore Grad who loves solving problems, creating beautiful Web Apps and learning something new everyday.
+        NIE Mysore Grad who loves solving problems, creating beautiful Web Apps and learning something new everyday.
       </SectionText>
       <Button onClick={()=>window.location="www.google.com"}>
         Learn More

@@ -25,9 +25,9 @@ const Timeline = () => {
   const [activeItem, setActiveItem] = useState(0);
   const carouselRef = useRef();
 
-  const scroll = (node, left) => {
-    return node.scrollTo({ left, behavior: 'smooth' });
-  }
+  // const scroll = (node, left) => {
+  //   return node.scrollTo({ left, behavior: 'smooth' });
+  // }
 
   const handleClick = (e, i) => {
     e.preventDefault();
@@ -41,29 +41,29 @@ const Timeline = () => {
     }
   };
 
-  const handleScroll = () => {
-    if (carouselRef.current) {
-      const index = Math.round((carouselRef.current.scrollLeft / (carouselRef.current.scrollWidth * 0.7)) * TimeLineData.length);
+  // const handleScroll = () => {
+  //   if (carouselRef.current) {
+  //     const index = Math.round((carouselRef.current.scrollLeft / (carouselRef.current.scrollWidth * 0.7)) * TimeLineData.length);
 
-      setActiveItem(index);
-    }
-  }
+  //     setActiveItem(index);
+  //   }
+  // }
 
   // // snap back to beginning of scroll when window is resized
   // // avoids a bug where content is covered up if coming from smaller screen
-  useEffect(() => {
-    const handleResize = () => {
-      scroll(carouselRef.current, 0);
-    }
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     scroll(carouselRef.current, 0);
+  //   }
 
-    window.addEventListener('resize', handleResize);
-  }, []);
+  //   window.addEventListener('resize', handleResize);
+  // }, []);
 
   return (
     <Section id="about">
       <SectionTitle>About Me</SectionTitle>
       <SectionText>I enjoy Development.</SectionText>
-      <CarouselContainer ref={carouselRef} onScroll={handleScroll}>
+      <CarouselContainer ref={carouselRef}>
         <>
           {TimeLineData.map((item, index) => (
             <CarouselMobileScrollNode
@@ -92,11 +92,10 @@ const Timeline = () => {
             onClick={(e) => handleClick(e, index)}
             type="button"
           >
-            <CarouselButtonDot active={activeItem} />
+            <CarouselButtonDot />
           </CarouselButton>
         ))}
       </CarouselButtons>
-      <SectionDivider />
     </Section>
   );
 };
